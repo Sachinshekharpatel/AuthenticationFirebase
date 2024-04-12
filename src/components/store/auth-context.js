@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-
 const AuthContext = React.createContext({
     token: '',
     isLoggedIn: false,
@@ -8,6 +7,7 @@ const AuthContext = React.createContext({
 })
 
 export const AuthContextProvider = (props) => {
+  
     const [token, setToken] = useState(null)
     const userIsLoggedIn = !!token;//THIS WILL CONVERT TRUITHY OR FALSY VALUE TO BOOLEAN VALUE
     
@@ -17,6 +17,7 @@ export const AuthContextProvider = (props) => {
 
     const logoutHandler = () => {
         setToken(null)
+        
     }
 
     const contextValue = {

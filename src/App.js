@@ -1,11 +1,13 @@
 import { Switch, Route } from 'react-router-dom';
-
+import React, { useContext } from 'react';
 import Layout from './components/Layout/Layout';
 import UserProfile from './components/Profile/UserProfile';
 import AuthPage from './pages/AuthPage';
 import HomePage from './pages/HomePage';
 
+
 function App() {
+  
   return (
     <Layout>
       <Switch>
