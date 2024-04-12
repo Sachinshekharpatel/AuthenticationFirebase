@@ -25,7 +25,7 @@ const MainNavigation = () => {
           )}
          {isLoggedIn && (
             <li>
-            <button>Logout</button>
+            <button onClick={authCtx.logout}>Logout</button>
           </li>
          )}
         </ul>
