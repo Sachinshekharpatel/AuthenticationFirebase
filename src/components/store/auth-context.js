@@ -7,17 +7,18 @@ const AuthContext = React.createContext({
 })
 
 export const AuthContextProvider = (props) => {
-  
-    const [token, setToken] = useState(null)
+    const initialToken = localStorage.getItem('isLoggedIn')
+    const [token, setToken] = useState(initialToken)
     const userIsLoggedIn = !!token;//THIS WILL CONVERT TRUITHY OR FALSY VALUE TO BOOLEAN VALUE
     
     const loginHandler = (token) => {
         setToken(token)
+        localStorage.setItem('isLoggedIn', token)
     }
 
     const logoutHandler = () => {
         setToken(null)
-        
+        localStorage.removeItem('isLoggedIn')
     }
 
     const contextValue = {

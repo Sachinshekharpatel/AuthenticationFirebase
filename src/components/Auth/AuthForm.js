@@ -1,4 +1,4 @@
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import classes from "./AuthForm.module.css";
 import AuthContext from "../store/auth-context";
 import { useHistory } from "react-router-dom";
@@ -13,6 +13,7 @@ const AuthForm = () => {
   const switchAuthModeHandler = () => {
     setIsLogin((prevState) => !prevState);
   };
+
 
   const submitHandler = async (event) => {
     event.preventDefault();
