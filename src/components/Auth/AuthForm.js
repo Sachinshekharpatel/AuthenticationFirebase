@@ -42,22 +42,24 @@ const AuthForm = () => {
       }
     ).then((response) => {
       setIsLoading(false);
+      
       if (response.ok) {
         console.log(response);
         return response.json();
       } else {
         return response.json().then((data) => {
+          
           let errorMessage = "Authentication failed!";
           if (data && data.error && data.error.message) {
              errorMessage = data.error.message; 
           }
-          alert(errorMessage);
          throw new Error(errorMessage);
         });
       }
     }).then((data) => {
        authCtx.login(data.idToken)      
     }).catch((error) => {
+      
       alert(error.message);
     })
   };
@@ -77,7 +79,7 @@ const AuthForm = () => {
           <input type="password" id="password" required  ref={passwordInputRef}/>
         </div>
         <div className={classes.actions}>
-          { !isLoading && <button>{isLogin ? "Login" : "Create Account"}</button>}
+          {!isLoading && <button>{isLogin ? "Login" : "Create Account"}</button>}
           {
             isLoading && <p style={{color:"white"}}>Sending request...</p>
           }
